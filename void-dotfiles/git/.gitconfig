@@ -1,0 +1,16 @@
+[user]
+	name = farah-lli
+	email = farah.oushen@gmail.com
+[init]
+	defaultBranch = main
+[alias]
+	ad = add -A
+	st = status
+	co = checkout
+	cm = commit
+	br = branch
+	pl = pull
+	ps = push
+	rt = remote
+[core]
+	editor = nvim
