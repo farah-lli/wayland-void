@@ -35,9 +35,9 @@ sudo xbps-install -Sy \
     NetworkManager network-manager-applet ModemManager ufw linux-wifi-hotspot \
     net-tools wireless_tools bind-utils iputils inetutils-telnet ethtool nmap tcpdump \
     # SCHEDULE & TASK TOOLS:
-    at cronie dcron \
+    at cronie \
     # TIME DATE PROTOCOOLS (NTP)
-    tzutils ntp chrony \
+    tzutils chrony \
     # SERVERS & PRTOCOLS TOOLS:
     nfs-utils samba autofs apache \
     # SOUNDS TOOLS:
