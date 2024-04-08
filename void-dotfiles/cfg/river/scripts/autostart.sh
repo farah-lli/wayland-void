@@ -6,11 +6,11 @@ wbg ~/pix/wallpapers/WITCHER.png &
 #==========================#
 #  App Daemon              #
 #==========================#
-fnott &
 killall waybar; waybar &
-udiskie &
+blueman-applet &
 nm-applet &
-someblocks &
+fnott &
+udiskie &
 swayidle -w &
 pipewire &
 pipewire-pulse &
