@@ -4,24 +4,24 @@
 require("nvim-tree").setup({
     auto_reload_on_write = true,
     view = {
-        width = 30,
+        width = 40,
         side = "left",
-        number = true,
-        relativenumber = true,
+        number = false,
+        relativenumber = false,
     },
     filters = {
         dotfiles = true,
     },
 
     renderer = {
-        add_trailing = false,
-        group_empty = false,
-        highlight_git = false,
-        full_name = false,
+        add_trailing = true,
+        group_empty = true,
+        highlight_git = true,
+        full_name = true,
         highlight_opened_files = "none",
         highlight_modified = "none",
         root_folder_label = ":~:s?$?/..?",
-        indent_width = 2,
+        indent_width = 4,
 
         indent_markers = {
             enable = true, -- enables the tree like line
