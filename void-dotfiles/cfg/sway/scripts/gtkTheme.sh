@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 ## Set GTK Themes, Icons, Cursor and Fonts
 THEME='Gruvbox-Dark'
 ICONS='Nordzy-yellow-dark'
-FONT='JetBrainsMono Nerd Font 11'
-CURSOR='Bibata-Modern-Amber'
+FONT='JetBrainsMono Nerd Font 12'
+CURSOR='Bibata-Modern-Classic'
 SCHEMA='gsettings set org.gnome.desktop.interface'
 
 apply_themes() {

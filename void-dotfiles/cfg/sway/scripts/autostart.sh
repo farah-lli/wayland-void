@@ -1,12 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 #==========================#
-# For capturing screen:    #
+# Background Daemon:       #
 #==========================#
-dbus-update-activation-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway &
+wbg ~/pix/wallpapers/WITCHER.png &
 #==========================#
 #  App Daemon              #
 #==========================#
-killall fnott;fnott &
-killall udiskie;udiskie &
-killall pipewire;pipewire &
-killall pipewire-pulse;pipewire-pulse &
+fnott &
+udiskie &
+nm-applet &
+swayidle -w &
+pipewire &
+pipewire-pulse &
