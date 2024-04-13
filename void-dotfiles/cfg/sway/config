@@ -78,12 +78,12 @@ output eDP-1 {
     default_floating_border pixel 2
     # Gaps:                    #
     #==========================#
-    gaps inner  2
+    gaps inner  5
     gaps outer  0
     # Smart:                   #
     #==========================#
-    smart_borders on
-    smart_gaps on
+    smart_borders off
+    smart_gaps off
     # Others:                   #
     #==========================#
     xwayland enable
