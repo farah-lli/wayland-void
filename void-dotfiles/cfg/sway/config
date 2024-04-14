@@ -304,7 +304,7 @@ bar {
 #==========================#
 # Inhibit Idle Rules:      #
 #==========================#
-for_window [app_id=".*"]           inhabit_idle fullscreen
+for_window  [app_id=".*"]          inhabit_idle fullscreen
 for_window  [class=".*"]           inhabit_idle fullscreen
 # Inhibit Idle Rules:      #
 #==========================#
