@@ -82,8 +82,8 @@ output eDP-1 {
     gaps outer  0
     # Smart:                   #
     #==========================#
-    smart_borders off
-    smart_gaps off
+    smart_borders on
+    smart_gaps on
     # Others:                   #
     #==========================#
     xwayland enable
@@ -293,9 +293,12 @@ bar {
     position top
     font pango:JetBrains Mono Nerd Font 12
     status_command ~/.config/sway/scripts/statusbar.sh
+    tray_output eDP-1
     colors {
         statusline #ebdbb2
         background #1d2021
+        focused_workspace #689d6a #689d6a #1d2021
+        active_workspace #689d6a #689d6a #1d2021
         inactive_workspace #323232 #323232 #5c5c5c
     }
 }

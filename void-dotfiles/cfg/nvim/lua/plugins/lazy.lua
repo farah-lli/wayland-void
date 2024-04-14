@@ -39,6 +39,12 @@ require("lazy").setup({
 	{ "windwp/nvim-autopairs" },
 	{ "windwp/nvim-ts-autotag" },
 	{ "nvim-treesitter/nvim-treesitter" },
+	{
+		"barrett-ruth/live-server.nvim",
+		build = "npm install -g live-server",
+		cmd = { "LiveServerStart", "LiveServerStop" },
+		config = true,
+	},
 	-- LSP
 	{ "neovim/nvim-lspconfig" },
 	{ "glepnir/lspsaga.nvim" },
