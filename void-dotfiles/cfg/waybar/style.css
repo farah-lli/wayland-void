@@ -11,7 +11,7 @@
 window#waybar {
   border-bottom: 4px solid shade(@base, 1.1);
   border-radius: 10px;
-  background:#2d2a2e;
+  background: #2d2a2e;
   background-color: rgba(36, 39, 58, 0.85);
   background-color: rgba(0, 0, 0, 0);
   background-color: shade(#1d2021, 0.95);
@@ -47,7 +47,7 @@ window#waybar {
   border-radius: 20px;
 }
 #tags button.focused * {
-  color: @red;
+  color: @green;
 }
 
 #clock,
@@ -193,7 +193,7 @@ window#waybar {
 
 #network {
   color: @green;
-  /* border-bottom: 2px solid @green; */
+  /* border-bottom: 2px solid @@green; */
   border-radius: 10px;
   margin-right: 10px;
 }
@@ -241,7 +241,7 @@ window#waybar {
 #custom-launcher {
   font-size: 20px;
   background-color: shade(@base, 1.1);
-  color: @mauve;
+  color: @green;
   border-radius: 0px 15px 0px 0px;
   padding: 5px 10px 5px 10px;
 }
