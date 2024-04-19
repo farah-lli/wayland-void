@@ -38,6 +38,7 @@ require("lazy").setup({
 	{ "norcalli/nvim-colorizer.lua" },
 	{ "windwp/nvim-autopairs" },
 	{ "windwp/nvim-ts-autotag" },
+	{ "RRethy/vim-illuminate" },
 	{ "nvim-treesitter/nvim-treesitter" },
 	{
 		"barrett-ruth/live-server.nvim",
