@@ -211,7 +211,6 @@ struct Monitor {
 	struct wlr_box w; /* window area, layout-relative */
 	struct wl_list layers[4]; /* LayerSurface.link */
 	const Layout *lt[2];
-	int gaps;
 	unsigned int seltags;
 	unsigned int sellt;
 	uint32_t tagset[2];
@@ -287,6 +286,7 @@ static void cleanupmon(struct wl_listener *listener, void *data);
 static void closemon(Monitor *m);
 static void commitlayersurfacenotify(struct wl_listener *listener, void *data);
 static void commitnotify(struct wl_listener *listener, void *data);
+static int countclients(Monitor *m);
 static void createdecoration(struct wl_listener *listener, void *data);
 static void createidleinhibitor(struct wl_listener *listener, void *data);
 static void createkeyboard(struct wlr_keyboard *keyboard);
@@ -340,6 +340,7 @@ static void motionnotify(uint32_t time, struct wlr_input_device *device, double 
 		double sy, double sx_unaccel, double sy_unaccel);
 static void motionrelative(struct wl_listener *listener, void *data);
 static void moveresize(const Arg *arg);
+static int needsborder(Client *c);
 static void outputmgrapply(struct wl_listener *listener, void *data);
 static void outputmgrapplyortest(struct wlr_output_configuration_v1 *config, int test);
 static void outputmgrtest(struct wl_listener *listener, void *data);
@@ -374,7 +375,6 @@ static void togglebar(const Arg *arg);
 static void togglefloating(const Arg *arg);
 static void togglefullscreen(const Arg *arg);
 static void togglefakefullscreen(const Arg *arg);
-static void togglegaps(const Arg *arg);
 static void toggletag(const Arg *arg);
 static void toggleview(const Arg *arg);
 static void unlocksession(struct wl_listener *listener, void *data);
@@ -963,6 +963,17 @@ commitnotify(struct wl_listener *listener, void *data)
 		c->resize = 0;
 }
 
+int
+countclients(Monitor *m)
+{
+	unsigned int n = 0;
+	Client *c;
+	wl_list_for_each(c, &clients, link)
+		if (VISIBLEON(c, m) && !c->isfloating && !c->isfullscreen)
+			n++;
+	return n;
+}
+
 void
 createdecoration(struct wl_listener *listener, void *data)
 {
@@ -1080,8 +1091,6 @@ createmon(struct wl_listener *listener, void *data)
 
 	wlr_output_state_init(&state);
 	/* Initialize monitor state using configured rules */
-	m->gaps = gaps;
-
 	m->tagset[0] = m->tagset[1] = 1;
 	for (r = monrules; r < END(monrules); r++) {
 		if (!r->name || strstr(wlr_output->name, r->name)) {
@@ -2319,6 +2328,14 @@ moveresize(const Arg *arg)
 	}
 }
 
+int
+needsborder(Client *c) {
+	return ((countclients(c->mon) > 1
+			&& c->mon->lt[c->mon->sellt]->arrange != monocle)
+		|| c->isfloating)
+		&& !c->isfullscreen;
+}
+
 void
 outputmgrapply(struct wl_listener *listener, void *data)
 {
@@ -2515,6 +2532,7 @@ resize(Client *c, struct wlr_box geo, int interact)
 	struct wlr_box clip;
 	client_set_bounds(c, geo.width, geo.height);
 	c->geom = geo;
+	c->bw = needsborder(c) ? borderpx : 0;
 	applybounds(c, bbox);
 
 	/* Update scene-graph, including borders */
@@ -3095,7 +3113,7 @@ tagmon(const Arg *arg)
 void
 tile(Monitor *m)
 {
-	unsigned int h, r, e = m->gaps, mw, my, ty;
+	unsigned int mw, my, ty;
 	int i, n = 0;
 	Client *c;
 
@@ -3104,30 +3122,23 @@ tile(Monitor *m)
 			n++;
 	if (n == 0)
 		return;
-	if (smartgaps == n)
-		e = 0;
 
 	if (n > m->nmaster)
-		mw = m->nmaster ? ROUND((m->w.width + gappx*e) * m->mfact) : 0;
+		mw = m->nmaster ? ROUND(m->w.width * m->mfact) : 0;
 	else
-		mw = m->w.width - 2*gappx*e + gappx*e;
-	i = 0;
-	my = ty = gappx*e;
+		mw = m->w.width;
+	i = my = ty = 0;
 	wl_list_for_each(c, &clients, link) {
 		if (!VISIBLEON(c, m) || c->isfloating || c->isfullscreen)
 			continue;
 		if (i < m->nmaster) {
-			r = MIN(n, m->nmaster) - i;
-			h = (m->w.height - my - gappx*e - gappx*e * (r - 1)) / r;
-			resize(c, (struct wlr_box){.x = m->w.x + gappx*e, .y = m->w.y + my,
-				.width = mw - gappx*e, .height = h}, 0);
-			my += c->geom.height + gappx*e;
+			resize(c, (struct wlr_box){.x = m->w.x, .y = m->w.y + my, .width = mw,
+				.height = (m->w.height - my) / (MIN(n, m->nmaster) - i)}, 0);
+			my += c->geom.height;
 		} else {
-			r = n - i;
-			h = (m->w.height - ty - gappx*e - gappx*e * (r - 1)) / r;
-			resize(c, (struct wlr_box){.x = m->w.x + mw + gappx*e, .y = m->w.y + ty,
-				.width = m->w.width - mw - 2*gappx*e, .height = h}, 0);
-			ty += c->geom.height + gappx*e;
+			resize(c, (struct wlr_box){.x = m->w.x + mw, .y = m->w.y + ty,
+				.width = m->w.width - mw, .height = (m->w.height - ty) / (n - i)}, 0);
+			ty += c->geom.height;
 		}
 		i++;
 	}
@@ -3164,13 +3175,6 @@ togglefakefullscreen(const Arg *arg)
 	Client *sel = focustop(selmon);
 	if (sel)
 		setfakefullscreen(sel, !sel->isfakefullscreen);
-}
-
-void
-togglegaps(const Arg *arg)
-{
-	selmon->gaps = !selmon->gaps;
-	arrange(selmon);
 }
 
 void
