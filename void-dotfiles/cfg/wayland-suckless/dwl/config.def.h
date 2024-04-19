@@ -8,9 +8,9 @@
 /* appearance */
 static const int sloppyfocus                = 1;  /* focus follows mouse */
 static const int bypass_surface_visibility  = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
-static const int smartgaps                  = 0;  /* 1 means no outer gap when there is only one window */
+static const int smartgaps                  = 1;  /* 1 means no outer gap when there is only one window */
 static int gaps                             = 1;  /* 1 means gaps between windows are added */
-static const unsigned int gappx             = 5;  /* gap pixel between windows */
+static const unsigned int gappx             = 2;  /* gap pixel between windows */
 static const unsigned int borderpx          = 2;  /* border pixel of windows */
 static const float rootcolor[]              = COLOR(0x1d2021ff);
 static const float bordercolor[]            = COLOR(0x282828ff);
@@ -24,8 +24,8 @@ static const unsigned int cursorsize        = 24;
 /* bar */
 static const int showbar                    = 1; /* 0 means no bar */
 static const int topbar                     = 1; /* 0 means bottom bar */
-static const int vertpad                    = 5; /* vertical padding of bar */
-static const int sidepad                    = 5; /* horizontal padding of bar */
+static const int vertpad                    = 0; /* vertical padding of bar */
+static const int sidepad                    = 0; /* horizontal padding of bar */
 static const char *fonts[]                  = {"JetBrainsMono Nerd Font:style=bold:size=12"};
 static const char *fontattrs                = "dpi=96";
 static pixman_color_t borderbar             = { 0x2828, 0x2828, 0x2828, 0xffff };
