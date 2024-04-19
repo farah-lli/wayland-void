@@ -7,7 +7,6 @@ wbg ~/pix/wallpapers/WITCHER.png &
 #  App Daemon              #
 #==========================#
 fnott &
-wlsunset &
 udiskie &
 nm-applet &
 swayidle -w &
