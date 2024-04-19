@@ -45,6 +45,14 @@ require("lazy").setup({
 		cmd = { "LiveServerStart", "LiveServerStop" },
 		config = true,
 	},
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"rcarriga/nvim-notify",
+		},
+	},
 	-- LSP
 	{ "neovim/nvim-lspconfig" },
 	{ "glepnir/lspsaga.nvim" },

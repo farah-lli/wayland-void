@@ -6,7 +6,8 @@ wbg ~/pix/wallpapers/WITCHER.png &
 #==========================#
 #  App Daemon              #
 #==========================#
-killall waybar; waybar &
+killall waybar
+waybar &
 blueman-applet &
 nm-applet &
 fnott &
