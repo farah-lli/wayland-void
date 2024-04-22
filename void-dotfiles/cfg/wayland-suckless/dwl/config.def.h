@@ -169,7 +169,6 @@ static const char *raiseVolume[]      = { "wpctl", "set-volume", "@DEFAULT_AUDIO
 static const char *lowerVolume[]      = { "wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-",  NULL};
 static const char *lightUp[]          = { "brightnessctl", "set", "+5%",  NULL};
 static const char *lightDown[]        = { "brightnessctl", "set", "5%-",  NULL};
-static const char *reloadBar[]        = { "pkill", "-SIGRTMIN+10", "someblocks",  NULL};
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -194,7 +193,6 @@ static const Key keys[] = {
 	{ 0,                         XF86XK_AudioLowerVolume, spawn,     {.v = lowerVolume} },
 	{ 0,                         XF86XK_MonBrightnessUp,  spawn,     {.v = lightUp} },
 	{ 0,                         XF86XK_MonBrightnessDown,spawn,     {.v = lightDown} },
-	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_r,          spawn,          {.v = reloadBar} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_Return,     spawn,          SHCMD("foot --app-id foot_float") },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_bar,        spawn,          SHCMD("wezterm start --class wez_float") },
 	{ WLR_MODIFIER_LOGO,         XKB_KEY_p,          spawn,          SHCMD("mocp --toggle-pause") },
@@ -203,6 +201,7 @@ static const Key keys[] = {
 	{ WLR_MODIFIER_LOGO,         XKB_KEY_q,          spawn,          SHCMD("mocp --exit") },
 	{ WLR_MODIFIER_LOGO,         XKB_KEY_comma,      spawn,          SHCMD("mocp --seek -10") },
 	{ WLR_MODIFIER_LOGO,         XKB_KEY_period,     spawn,          SHCMD("mocp --seek +10") },
+	{ WLR_MODIFIER_LOGO,         XKB_KEY_w,          spawn,          SHCMD("bookmarks") },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_J,          movestack,      {.i = +1} },
