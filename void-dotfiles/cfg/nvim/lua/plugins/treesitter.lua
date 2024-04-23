@@ -1,34 +1,31 @@
------------------------------------------------------------
--- Treesitter
------------------------------------------------------------
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        "c",
-        "lua",
-        "vim",
-        "vimdoc",
-        "html",
-        "css",
-        "java",
-        "javascript",
-        "typescript",
-        "python",
-        "markdown",
-        "markdown_inline",
-    },
-    sync_install = false,
-    auto_install = true,
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
-    autotag = {
-        enable = true,
-    },
-    autopairs = {
-        enable = true,
-    },
-    rainbow = {
-        enable = true,
-    },
+return {
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    branch = "use-children",
+    lazy = false,
+    config = function()
+      -- This module contains a number of default definitions
+      local rainbow_delimiters = require("rainbow-delimiters")
+
+      vim.g.rainbow_delimiters = {
+        strategy = {
+          [""] = rainbow_delimiters.strategy["global"],
+          vim = rainbow_delimiters.strategy["local"],
+        },
+        query = {
+          [""] = "rainbow-delimiters",
+          lua = "rainbow-blocks",
+        },
+        highlight = {
+          "RainbowDelimiterYellow",
+          "RainbowDelimiterRed",
+          "RainbowDelimiterOrange",
+          "RainbowDelimiterBlue",
+          "RainbowDelimiterGreen",
+          "RainbowDelimiterViolet",
+          "RainbowDelimiterCyan",
+        },
+      }
+    end,
+  },
 }
