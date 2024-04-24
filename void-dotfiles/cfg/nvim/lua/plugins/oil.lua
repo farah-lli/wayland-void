@@ -4,10 +4,10 @@
 return {
   "stevearc/oil.nvim",
   keys = {
-    { "<leader>fo", "<cmd>Oil<cr>", desc = "Next buffer" },
+    { "<leader>o", "<cmd>Oil<cr>", desc = "Next buffer" },
   },
   opts = {
-    default_file_explorer = false,
+    default_file_explorer = true,
     columns = {
       "icon",
       "permissions",
