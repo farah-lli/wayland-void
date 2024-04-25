@@ -10,8 +10,8 @@
 }
 /* Waybar Css */
 window#waybar {
-  background-color: rgb(29, 32, 33);
-  border-bottom: 5px solid #282828;
+  background-color: #1d2021;
+  border-bottom: 2px solid #282828;
   color: #ebdbb2;
   transition-property: background-color;
   transition-duration: 0.5s;
@@ -29,9 +29,9 @@ window#waybar {
 #custom-launcher,
 #custom-wf-recorder,
 #custom-power {
-  background-color: #1d2021;
-  border: 3px solid #282828;
+  background-color: #282828;
   border-radius: 8px;
+  border: 1px solid #1d2021;
   background-origin: border-box;
   background-clip: padding-box;
   padding: 0 15px;
@@ -40,17 +40,17 @@ window#waybar {
 
 /*  Module Left */
 #tags {
-  color: #d79921;
+  color: #689d6a;
 }
 #tags button {
-  color: #fabd2f;
+  color: #689d6a;
   margin-left: -10px;
 }
 #tags button.occupied {
   color: #98971a;
 }
 #tags button.focused {
-  color: #d65d0e;
+  color: #d79921;
 }
 #tags button.urgent {
   color: #9d0006;
