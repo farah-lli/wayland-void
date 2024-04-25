@@ -1,142 +1,141 @@
-// -*- mode: jsonc -*-
 {
-  "layer": "top",
-  "position": "top",
-  "height": 30, // Waybar height (to be removed for auto height)
-  "width": 1920, // Waybar width
-  "spacing": 4, // Gaps between modules (4px)
+  // ======================= Waybar configuration =============================== //
   "modules-left": [
     "custom/launcher",
+    "river/tags",
+    "custom/wf-recorder",
+    "river/mode"
   ],
   "modules-center": [
-    "river/tags",
+    "clock"
   ],
   "modules-right": [
-    "tray",
-    "battery",
-    "backlight",
-    "backlight/slider",
+    "idle_inhibitor",
     "pulseaudio",
-    "pulseaudio/slider",
-    "clock",
-    "custom/power",
+    "backlight",
+    "battery",
+    "tray",
+    "custom/power"
   ],
+  // ======================= Modules configuration =============================== //
+  // == River Tags & Icons ==/
   "river/tags": {
     "num-tags": 5,
-    "set-tags": [
-      2147483649,
-      2147483650,
-      2147483652,
-      2147483656,
-      2147483664
+    "tag-labels": [
+      "¹一",
+      "²二",
+      "³三",
+      "⁴四",
+      "⁵五",
+      "⁶六",
+      "⁷七",
+      "⁸八",
+      "⁹九",
+      "十"
     ]
   },
+  //== Show Mode River WM ==//
   "river/mode": {
-    "format": "mode: {}"
+    "format": "mode: {}",
   },
-  "river/layout": {
-    "format": "{}",
-    "min-length": 4,
-    "align": "right"
+  // == Show Language Keyboard in River WM ==//
+  "river/language": {
+    "format": "  {} ",
+    "format-en": "us",
+    "format-ar": "ar",
+    "keyboard-name": "at-translated-set-2-keyboard"
   },
+  // == Show Status Idle ==//
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " "
+    },
+    "start-activated": true,
+  },
+  // == Show System Tray ==//
+  "tray": {
+    "spacing": 10
+  },
+  // == Show Clock ==//
   "clock": {
-    "interval": 60,
-    "tooltip": true,
-    "format": "{:%H.%M}",
-    "tooltip-format": "{:%Y-%m-%d}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%H:%M}  ",
+    "format-alt": "{:%A, %B %d, %Y}  "
   },
+  // == Show Light ==//
   "backlight": {
-    "device": "intel_backlight",
     "format": "{icon} {percent}%",
     "format-icons": [
-      "",
-      ""
-    ]
+      " ",
+      " "
+    ],
+    "on-scroll-up": "doas brightnessctl set +5%",
+    "on-scroll-down": "doas brightnessctl set 5%-"
   },
-  "backlight/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal",
-    "device": "intel_backlight"
-  },
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-bluetooth": "%{icon} {volume}",
-    "format-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        ""
-      ]
-    },
-    "scroll-step": 1,
-    "on-click": "pavucontrol",
-    "ignored-sinks": [
-      "Easy Effects Sink"
-    ]
-  },
-  "pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "horizontal"
-  },
+  // == Show Level Battery ==//
   "battery": {
-    "bat": "BAT0",
-    "interval": 60,
     "states": {
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
+    "format": "{icon} {capacity}%",
+    "tooltip-format": "{timeTo}, {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": " ",
+    "format-alt": "{time} {icon}",
     "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
+      " ",
+      " ",
+      " ",
+      " ",
+      " "
     ],
-    "max-length": 25
   },
-  "tray": {
-    "icon-size": 15,
-    "spacing": 10
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
+  // == Show Volume ==//
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format-bluetooth-muted": "  {volume}% {format_source}",
+    "format-source": " ",
+    "format-source-muted": " ",
+    "format-muted": "  {format_source}",
     "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": " ",
+      "portable": " ",
+      "car": " ",
+      "default": [
+        " ",
+        " "
+      ]
+    },
+    "tooltip-format": "{desc}, {volume}%",
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-middle": "pavucontrol"
   },
-  "disk": {
-    "interval": 30,
-    "format": "Only {percentage_free}% remaining on {path}",
-    "path": "/"
-  },
-  "memory": {
-    "interval": 30,
-    "format": "{}% ",
-    "max-length": 10
-  },
-  "cpu": {
-    "interval": 10,
-    "format": "{}% ",
-    "max-length": 10
-  },
-  "custom/power": {
-    "format": " ⏻ ",
-    "on-click": "~/.config/river/scripts/powerMenu.sh",
-    "tooltip": false
-  },
+  // == Fuzzel Launcher Applications ==//
   "custom/launcher": {
-    "format": " ",
-    "on-click": "wmenu_run",
-    "tooltip": false
+    "format": " ",
+    "on-click": "fuzzel",
+    "on-click-right": "pkill fuzzel"
   },
-}
+  // == Show Screen Recorder ==//
+  "custom/wf-recorder": {
+    "format": " ",
+    "return-type": "json",
+    "interval": 1,
+    "exec": "echo '{\"class\": \"recording\"}'",
+    "exec-if": "pgrep wf-recorder",
+    "on-click": "killall -s SIGINT wf-recorder",
+  },
+  // == Show Power Manager ==//
+  "custom/power": {
+    "format": "  {}",
+    "on-click": "bash ~/.config/river/scripts/powerMenu.sh"
+  },
+},
