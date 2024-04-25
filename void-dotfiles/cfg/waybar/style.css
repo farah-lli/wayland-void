@@ -11,10 +11,12 @@
 /* Waybar Css */
 window#waybar {
   background-color: rgb(29, 32, 33);
+  border-bottom: 5px solid #282828;
   color: #ebdbb2;
   transition-property: background-color;
   transition-duration: 0.5s;
 }
+
 /* Group All Modules */
 #tags,
 #mode,
@@ -28,8 +30,7 @@ window#waybar {
 #custom-wf-recorder,
 #custom-power {
   background-color: #1d2021;
-  border: 3px solid;
-  box-shadow: 1px 1px 3px 1px;
+  border: 3px solid #282828;
   border-radius: 8px;
   background-origin: border-box;
   background-clip: padding-box;
@@ -60,6 +61,7 @@ window#waybar {
 #mode.normal {
   background-color: transparent;
   color: transparent;
+  border-color: transparent;
 }
 
 /*  Module Center */
@@ -115,10 +117,11 @@ window#waybar {
 /*  My Coustom Module */
 #custom-power {
   color: #cc241d;
+  border-radius: 15px 0px 0px 0px;
 }
 #custom-launcher {
   color: #89871a;
-  padding: 0 20px;
+  border-radius: 0px 15px 0px 0px;
 }
 #custom-wf-recorder {
   padding: 0 20px;
