@@ -2,15 +2,20 @@
 # GENERAL:    #
 #==============
 font=JetBrainsMono Nerd Font
+daemonize
 clock
 timestr=%R
 datestr=%a, %e of %B
 ignore-empty-password
+show-failed-attempts
+grace=2
+grace-no-mouse
+grace-no-touch
 #==============
 # EYE CANDY:  #
 #==============
 screenshots
-fade-in=0.2
+fade-in=0.4
 effect-blur=20x2
 effect-scale=0.2
 #==============
