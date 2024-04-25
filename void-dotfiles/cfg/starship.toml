@@ -15,7 +15,7 @@ add_newline = false
 # $character
 # """
 format = """
-$cmd_duration$directory $git_branch_$git_status
+$cmd_duration$directory $git_branch $git_status
 $character
 """
 
