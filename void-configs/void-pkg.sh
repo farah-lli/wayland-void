@@ -13,7 +13,7 @@ sudo xbps-install -Sy \
     # COMPOSITOR:
     wayland wayland-protocols xorg-server-xwayland wlroots wlroots-devel \
     # COMPOSITOR-TOOLS:
-    lswt kanshi wlr-randr wvkbd wbg fnott \
+    river waylock Waybar wolpm lswt kanshi wlr-randr wvkbd wbg fnott \
     # WAYLAND QT APP:
     qt5ct qt5-wayland qt6-wayland \
     # SCREENSHOOT TOOLS:

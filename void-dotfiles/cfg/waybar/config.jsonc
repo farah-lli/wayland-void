@@ -52,7 +52,7 @@
       "activated": " ",
       "deactivated": " "
     },
-    "start-activated": true,
+    "start-activated": false,
   },
   // == Show System Tray ==//
   "tray": {
@@ -138,4 +138,4 @@
     "format": "  {}",
     "on-click": "bash ~/.config/river/scripts/powerMenu.sh"
   },
-},
+}

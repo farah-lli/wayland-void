@@ -12,6 +12,5 @@ blueman-applet &
 nm-applet &
 fnott &
 udiskie &
-swayidle -w &
 pipewire &
 pipewire-pulse &
