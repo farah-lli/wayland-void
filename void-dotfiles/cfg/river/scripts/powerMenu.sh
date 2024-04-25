@@ -9,7 +9,7 @@ case "$selected" in
 	"REBOOT") doas reboot ;;
 	"SUSPEND") doas zzz ;;
 	"HIBERNATE") doas zzz ;;
-	"LOCK") swaylock ;;
-	"LOG OUT") pkill dwl ;;
+	"LOCK") waylock -init-color 0x1d2021 -input-color 0x689d6a -fail-color 0xcc241d ;;
+	"LOG OUT") riverctl exit ;;
 	*) exit 1 ;;
 esac
