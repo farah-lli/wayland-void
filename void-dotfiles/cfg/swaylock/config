@@ -15,6 +15,7 @@ grace-no-touch
 # EYE CANDY:  #
 #==============
 screenshots
+color=1d2021ff
 fade-in=0.4
 effect-blur=20x2
 effect-scale=0.2
