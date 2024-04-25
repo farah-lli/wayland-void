@@ -1,23 +1,22 @@
 ## ░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
-#  Tartarus Prompt Theme base on starship. If you dont want to use the custom icomoon font
-#  Just delete de icons you can't see an use icons from nerd fonts.
-# Don't print a new line at the start of the prompt
+"$schema" = 'https://starship.rs/config-schema.json'
+command_timeout = 10000
 add_newline = false
 # Pipes ╰─ ╭─
 # Powerline symbols                                     
 # Wedges 🭧🭒 🭣🭧🭓
 # Random noise 🬖🬥🬔🬗
 
-# format = """
-# $cmd_duration$username$hostname $directory $git_branch
-# $character
-# """
 format = """
-$cmd_duration$directory $git_branch $git_status
+$cmd_duration$username$hostname $directory $git_branch
 $character
 """
+# format = """
+# $cmd_duration$directory $git_branch $git_status
+# $character
+# """
 
 # Replace the "❯" symbol in the prompt with "➜"
 [character]                            # The name of the module we are configuring is "character"

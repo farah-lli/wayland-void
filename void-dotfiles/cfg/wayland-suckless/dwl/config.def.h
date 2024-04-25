@@ -6,31 +6,31 @@
                         ((hex >> 8) & 0xFF) / 255.0f, \
                         (hex & 0xFF) / 255.0f }
 /* appearance */
-static const int sloppyfocus                = 1;  /* focus follows mouse */
-static const int bypass_surface_visibility  = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
-static const unsigned int borderpx          = 2;  /* border pixel of windows */
-static const float rootcolor[]              = COLOR(0x1d2021ff);
-static const float bordercolor[]            = COLOR(0x282828ff);
-static const float focuscolor[]             = COLOR(0x689d6aff);
-static const float urgentcolor[]            = COLOR(0x9d0006ff);
+static const int sloppyfocus                 = 1;  /* focus follows mouse */
+static const int bypass_surface_visibility   = 0;  /* 1 means idle inhibitors will disable idle tracking even if it's surface isn't visible  */
+static const int smartgaps                   = 1;  /* 1 means no outer gap when there is only one window */
+static int gaps                              = 1;  /* 1 means gaps between windows are added */
+static const unsigned int gappx              = 2; /* gap pixel between windows */
+static const unsigned int borderpx           = 3;  /* border pixel of windows */
+static const float rootcolor[]               = COLOR(0x1d2021ff);
+static const float bordercolor[]             = COLOR(0x282828ff);
+static const float focuscolor[]              = COLOR(0x689d6aff);
+static const float urgentcolor[]             = COLOR(0x9d0006ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
-static const float fullscreen_bg[]          = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
-static const int center_relative_to_monitor = 0; /* 0 means center floating relative to the window area */
-static const char cursortheme[]             = "Bibata-Modern-Classic"; /* theme from /usr/share/cursors/xorg-x11 */
-static const unsigned int cursorsize        = 24;
-/* bar */
-static const int showbar                    = 1; /* 0 means no bar */
-static const int topbar                     = 1; /* 0 means bottom bar */
-static const int vertpad                    = 0; /* vertical padding of bar */
-static const int sidepad                    = 0; /* horizontal padding of bar */
-static const char *fonts[]                  = {"JetBrainsMono Nerd Font:style=bold:size=12"};
-static const char *fontattrs                = "dpi=96";
-static pixman_color_t borderbar             = { 0x2828, 0x2828, 0x2828, 0xffff };
-static pixman_color_t normbarfg             = { 0xebeb, 0xdbdb, 0xb2b2, 0xffff };
-static pixman_color_t normbarbg             = { 0x1d1d, 0x2020, 0x2121, 0xffff };
-static pixman_color_t selbarfg              = { 0x1d1d, 0x2020, 0x2121, 0xffff };
-static pixman_color_t selbarbg              = { 0x6868, 0x9d9d, 0x6a6a, 0xffff };
+static const float fullscreen_bg[]           = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
+static const int floating_relative_to_monitor= 0; /* 0 means center floating relative to the window area */
+static const char cursortheme[]              = "Bibata-Modern-Classic"; /* theme from /usr/share/cursors/xorg-x11 */
+static const unsigned int cursorsize         = 24;
 
+/* bar */
+static const int showbar                     = 1; /* 0 means no bar */
+static const int topbar                      = 1; /* 0 means bottom bar */
+static const char *fonts[]                   = {"JetBrainsMono Nerd Font:style=bold:size=12"};
+static const char *fontattrs                 = "dpi=96";
+static pixman_color_t normbarfg              = { 0xebeb, 0xdbdb, 0xb2b2, 0xffff };
+static pixman_color_t normbarbg              = { 0x1d1d, 0x2020, 0x2121, 0xffff };
+static pixman_color_t selbarfg               = { 0x1d1d, 0x2020, 0x2121, 0xffff };
+static pixman_color_t selbarbg               = { 0x6868, 0x9d9d, 0x6a6a, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
 static char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -86,7 +86,7 @@ static const struct xkb_rule_names xkb_rules = {
 	.options = "ctrl:nocaps",
 	*/
 	.options = "caps:escape,grp:alt_altgr_toggle",
-    .layout  = "us,ara",
+  .layout  = "us,ara",
 };
 
 static const int repeat_rate = 50;
@@ -211,9 +211,6 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_period,     incnmaster,     {.i = -1} },
 	{ MODKEY,                    XKB_KEY_h,          setmfact,       {.f = -0.05f} },
 	{ MODKEY,                    XKB_KEY_l,          setmfact,       {.f = +0.05f} },
-	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_l,          setcfact,       {.f = +0.25f} },
-	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_h,          setcfact,       {.f = -0.25f} },
-	{ MODKEY|WLR_MODIFIER_CTRL,  XKB_KEY_k,          setcfact,       {.f = 0.0f} },
 	{ MODKEY,                    XKB_KEY_s,          zoom,           {0} },
 	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_C,          killclient,     {0} },
