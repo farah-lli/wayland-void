@@ -92,7 +92,7 @@ window#waybar {
 }
 #battery.charging,
 #battery.plugged {
-  background-color: #1d2021;
+  background-color: #282828;
 }
 /* Animation battery */
 @keyframes blink {
@@ -114,7 +114,7 @@ window#waybar {
   padding: 0 20px;
 }
 
-/*  My Coustom Module */
+/*  My Custom Module */
 #custom-power {
   color: #cc241d;
   border-radius: 15px 0px 0px 0px;
