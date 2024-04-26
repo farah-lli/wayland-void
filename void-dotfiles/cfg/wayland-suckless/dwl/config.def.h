@@ -11,7 +11,7 @@ static const int bypass_surface_visibility   = 0;  /* 1 means idle inhibitors wi
 static const int smartgaps                   = 1;  /* 1 means no outer gap when there is only one window */
 static int gaps                              = 1;  /* 1 means gaps between windows are added */
 static const unsigned int gappx              = 2; /* gap pixel between windows */
-static const unsigned int borderpx           = 3;  /* border pixel of windows */
+static const unsigned int borderpx           = 1;  /* border pixel of windows */
 static const float rootcolor[]               = COLOR(0x1d2021ff);
 static const float bordercolor[]             = COLOR(0x282828ff);
 static const float focuscolor[]              = COLOR(0x689d6aff);
@@ -50,14 +50,14 @@ static const char *const autostart[] = {
 static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating      isterm   noswallow   monitor   x   y  width  height */
 	/* examples: */
-	{ "Gimp_EXAMPLE",     NULL,       0,                0,             0,         0,        -1,       0,  0,     0,     0, }, /* Start on currently visible tags floating, not tiled */
-	{ "firefox_EXAMPLE",  NULL,       1 << 8,           0,             0,         0,        -1,       0,  0,     0,     0, }, /* Start on ONLY tag "9" */
-	{ "foot",             NULL,       0,                0,             1,         1,        -1,       0,  0,     0,     0, }, /* Start on ONLY tag "9" */
-	{ "wezterm",          NULL,       0,                0,             1,         1,        -1,       0,  0,     0,     0, }, /* Start on ONLY tag "9" */
-	{ "foot_float",       NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, }, /* Start on ONLY tag "9" */
-	{ "wez_float",        NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, }, /* Start on ONLY tag "9" */
-	{ "wez_float",        NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, }, /* Start on ONLY tag "9" */
-	{ "fileCli",          NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, }, /* Start on ONLY tag "9" */
+	{ "Gimp_EXAMPLE",     NULL,       0,                0,             0,         0,        -1,       0,  0,     0,     0, },
+	{ "firefox_EXAMPLE",  NULL,       1 << 8,           0,             0,         0,        -1,       0,  0,     0,     0, },
+	{ "foot",             NULL,       0,                0,             1,         1,        -1,       0,  0,     0,     0, },
+	{ "wezterm",          NULL,       0,                0,             1,         1,        -1,       0,  0,     0,     0, },
+	{ "foot_float",       NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
+	{ "wez_float",        NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
+	{ "wez_float",        NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
+	{ "fileCli",          NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
 };
 
 /* layout(s) */
