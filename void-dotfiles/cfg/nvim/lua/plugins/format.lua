@@ -48,6 +48,7 @@ return {
 
       -- JSON
       json = { "prettierd" },
+      -- json = { "jq" },
 
       -- YAML
       yaml = { "prettierd" },
