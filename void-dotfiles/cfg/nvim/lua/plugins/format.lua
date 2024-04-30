@@ -43,6 +43,9 @@ return {
       -- CSS
       css = { "prettierd" },
 
+      -- PHP
+      php = { "pint" },
+
       -- Markdown
       markdown = { "prettierd" },
 
