@@ -2,8 +2,21 @@
 -- Disbaled
 -----------------------------------------------------------
 return {
-  -- disable trouble
-  { "folke/trouble.nvim", enabled = false },
-  { "mfussenegger/nvim-lint", enabled = false },
-  { "persistence.nvim", enabled = false },
+  -- disable tokyonight (theme)
+  {
+    "folke/tokyonight.nvim",
+    enabled = false,
+  },
+
+  -- disable catppuccin (theme)
+  {
+    "catppuccin/nvim",
+    enabled = false,
+  },
+
+  -- disable nvim-spectre (find/replace in multiple files)
+  {
+    "nvim-pack/nvim-spectre",
+    enabled = false,
+  },
 }

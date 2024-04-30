@@ -57,7 +57,7 @@ static const Rule rules[] = {
 	{ "foot_float",       NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
 	{ "wez_float",        NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
 	{ "wez_float",        NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
-	{ "fileCli",          NULL,       0,                1,             1,         1,        -1,       0,  0,  1000,  0.75, },
+	{ "fileCli",          NULL,       0,                1,             1,         1,        -1,       0,  0,  1400,  0.75, },
 };
 
 /* layout(s) */

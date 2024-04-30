@@ -144,7 +144,7 @@ alias yt-film="lobster -l arabic"
 #####################################
 export NNN_USE_EDITOR=1
 export NNN_TRASH=1
-export NNN_OPTS='RUc'
+export NNN_OPTS='RUdc'
 export NNN_COLORS='2134'
 export NNN_CONTEXT_COLORS="2135"
 export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
