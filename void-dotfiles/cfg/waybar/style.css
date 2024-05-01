@@ -117,11 +117,9 @@ window#waybar {
 /*  My Custom Module */
 #custom-power {
   color: #cc241d;
-  border-radius: 15px 0px 0px 0px;
 }
 #custom-launcher {
   color: #89871a;
-  border-radius: 0px 15px 0px 0px;
 }
 #custom-wf-recorder {
   padding: 0 20px;
