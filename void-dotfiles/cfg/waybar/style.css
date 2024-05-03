@@ -28,10 +28,11 @@ window#waybar {
 #tray,
 #custom-launcher,
 #custom-wf-recorder,
-#custom-power {
+#custom-power,
+#custom-updates {
   background-color: #282828;
   border-radius: 8px;
-  border: 1px solid #1d2021;
+  border: 2px solid #32302f;
   background-origin: border-box;
   background-clip: padding-box;
   padding: 0 15px;
@@ -125,4 +126,7 @@ window#waybar {
   padding: 0 20px;
   color: #cc241d;
   background-color: #282828;
+}
+#custom-updates {
+  color: #d79921;
 }

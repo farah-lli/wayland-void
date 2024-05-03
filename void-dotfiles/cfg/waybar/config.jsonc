@@ -3,6 +3,7 @@
   "modules-left": [
     "custom/launcher",
     "river/tags",
+    "custom/updates",
     "custom/wf-recorder",
     "river/mode"
   ],
@@ -65,15 +66,15 @@
     "format-alt": "{:%A, %B %d, %Y}  "
   },
   // == Show Light ==//
-  "backlight": {
-    "format": "{icon} {percent}%",
-    "format-icons": [
-      " ",
-      " "
-    ],
-    "on-scroll-up": "doas brightnessctl set +5%",
-    "on-scroll-down": "doas brightnessctl set 5%-"
-  },
+    "backlight": {
+        "device": "intel_backlight",
+        "rotate": 0,
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 8
+    },
   // == Show Level Battery ==//
   "battery": {
     "states": {
@@ -137,5 +138,14 @@
   "custom/power": {
     "format": "  {}",
     "on-click": "bash ~/.config/river/scripts/powerMenu.sh"
+  },
+    // == Show Update Package Manager ==//
+  "custom/updates": {
+      "format": "   {} ",
+      "interval": 10,                     
+      "exec": "i=$(sudo xbps-install -SuMn | awk '{print $1}'); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+      "exec-if": "exit 0",                
+      "on-click": "foot doas xbps-install -SMu",
+      "signal": 8
   },
 }
