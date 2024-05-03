@@ -15,20 +15,18 @@ window#waybar {
   color: #ebdbb2;
   transition-property: background-color;
   transition-duration: 0.5s;
+  border-bottom: 4px solid #282828;
 }
 
 /* Group All Modules */
 #tags,
 #mode,
-#clock,
 #idle_inhibitor,
 #pulseaudio,
 #backlight,
 #battery,
 #tray,
-#custom-launcher,
 #custom-wf-recorder,
-#custom-power,
 #custom-updates {
   background-color: #282828;
   border-radius: 8px;
@@ -67,7 +65,21 @@ window#waybar {
 
 /*  Module Center */
 #clock {
+  background: #1d2021;
+  padding: 4px 10px;
+  box-shadow: inset 0px 0px 1px 20px #282828;
+}
+
+#clock.1 {
+  color: #d79921;
+  border-top-left-radius: 20px;
+}
+#clock.2 {
   color: #689d6a;
+}
+#clock.3 {
+  color: #189984;
+  border-top-right-radius: 20px;
 }
 
 /* Module Right */
@@ -116,16 +128,23 @@ window#waybar {
 }
 
 /*  My Custom Module */
-#custom-power {
+#custom-power,
+#custom-launcher {
   color: #cc241d;
+  background: #282828;
+  border-radius: 15px 0px 0px 0px;
+  padding: 0 14px;
+  margin: 0 0 0 5px;
 }
 #custom-launcher {
   color: #89871a;
+  border-radius: 0px 15px 0px 0px;
+  margin: 0 5px 0 0;
 }
 #custom-wf-recorder {
   padding: 0 20px;
   color: #cc241d;
-  background-color: #282828;
+  background: #282828;
 }
 #custom-updates {
   color: #d79921;

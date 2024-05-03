@@ -8,7 +8,9 @@
     "river/mode"
   ],
   "modules-center": [
-    "clock"
+        "clock#1",
+        "clock#2",
+        "clock#3",
   ],
   "modules-right": [
     "idle_inhibitor",
@@ -60,11 +62,18 @@
     "spacing": 10
   },
   // == Show Clock ==//
-  "clock": {
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format": "{:%I:%M}  ",
-    "format-alt": "{:%A, %B %d, %Y}  "
-  },
+    "clock#1": {
+        "format": "  {:%a}",
+        "tooltip": false
+    },
+    "clock#2": {
+        "format": "  {:%I:%M%p}",
+        "tooltip": false
+    },
+    "clock#3": {
+        "format": "󱣺  {:%m-%d}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"	
+    },
   // == Show Light ==//
     "backlight": {
         "device": "intel_backlight",
