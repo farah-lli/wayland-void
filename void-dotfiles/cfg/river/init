@@ -105,12 +105,11 @@ riverctl rule-add -app-id "wihotspot-gui" position 1400 45
 riverctl rule-add -app-id "pavucontrol" position 1115 45
 # Tags Rules:              #
 #==========================#
-# 000010000 => tags 5
-riverctl rule-add -app-id "Waydroid" tags 000010000
-riverctl rule-add -app-id "mypaint" tags 000010000
-riverctl rule-add -app-id "nemo" tags 000010000
-riverctl rule-add -app-id "virt-manager" tags 000010000
-riverctl rule-add -app-id "*qutebrowser*" tags 000010000
+# 2147483664 => tags 5
+riverctl rule-add -app-id "Waydroid" tags 2147483664
+riverctl rule-add -app-id "mypaint" tags 2147483664
+riverctl rule-add -app-id "nemo" tags 2147483664
+riverctl rule-add -app-id "virt-manager" tags 2147483664
 # Others Rules:            #
 #==========================#
 riverctl rule-add -app-id "nemo" ssd

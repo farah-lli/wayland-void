@@ -141,6 +141,7 @@ window#waybar {
   color: #89871a;
   border-radius: 0px 15px 0px 0px;
   margin: 0 5px 0 0;
+  padding: 0 16px;
 }
 #custom-wf-recorder {
   padding: 0 20px;
