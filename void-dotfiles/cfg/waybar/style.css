@@ -133,6 +133,7 @@ window#waybar {
   color: #cc241d;
   background: #282828;
   border-radius: 15px 0px 0px 0px;
+  border: 2px solid #32302f;
   padding: 0 14px;
   margin: 0 0 0 5px;
 }

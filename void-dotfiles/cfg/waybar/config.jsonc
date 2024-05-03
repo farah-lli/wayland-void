@@ -63,11 +63,11 @@
   },
   // == Show Clock ==//
     "clock#1": {
-        "format": "  {:%a}",
+        "format": "  {:%a}",
         "tooltip": false
     },
     "clock#2": {
-        "format": "  {:%I:%M%p}",
+        "format": "󱉊  {:%I:%M%p}",
         "tooltip": false
     },
     "clock#3": {
@@ -151,8 +151,8 @@
     // == Show Update Package Manager ==//
   "custom/updates": {
       "format": "   {} ",
-      "interval": 10,                     
-      "exec": "i=$(sudo xbps-install -SuMn | awk '{print $1}'); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
+      "interval": 7200,                     // every two hours
+      "exec": "xbps-install --memory-sync --dry-run --update | grep -Fe update -e install | wc -l",       // # of updates and tooltip details
       "exec-if": "exit 0",                
       "on-click": "foot doas xbps-install -SMu",
       "signal": 8
