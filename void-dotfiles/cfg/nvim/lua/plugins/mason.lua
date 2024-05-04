@@ -9,8 +9,8 @@ return {
       ensure_installed = {
         -- formatters
         "prettierd",
-        "markdownlint",
-        "rustywind",
+        "prettier",
+        "beautysh",
         "stylua",
         -- Language
         "html-lsp",

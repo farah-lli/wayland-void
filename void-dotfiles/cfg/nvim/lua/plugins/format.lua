@@ -11,61 +11,19 @@ return {
     },
 
     formatters_by_ft = {
-      -- Shell
-      sh = { "shfmt" },
-
-      -- Lua
+      typescript = { "prettier" },
+      typescriptreact = { "prettier" },
+      javascript = { "prettier" },
+      javascriptreact = { "prettier" },
+      json = { "prettier" },
+      html = { "prettier" },
+      css = { "prettier" },
+      scss = { "prettier" },
+      markdown = { "prettier" },
+      yaml = { "prettier" },
+      sh = { "beautysh" },
+      zsh = { "beautysh" },
       lua = { "stylua" },
-
-      -- Python
-      python = { "ruff_fix", "ruff_format" },
-
-      -- C/C++
-      c = { "clang_format" },
-      cpp = { "clang_format" },
-
-      -- Golang
-      go = { "goimports" },
-
-      -- Javascript/Typescript
-      javascript = { "prettierd" },
-      typescript = { "prettierd" },
-      javascriptreact = { "prettierd" },
-      ["javascript.jsx"] = { "prettierd" },
-      typescriptreact = { "prettierd" },
-      ["typescript.tsx"] = { "prettierd" },
-      -- vue = { "prettierd" },
-      svelte = { "prettierd" },
-
-      -- HTML
-      html = { "prettierd" },
-
-      -- CSS
-      css = { "prettierd" },
-
-      -- PHP
-      php = { "pint" },
-
-      -- Markdown
-      markdown = { "prettierd" },
-
-      -- JSON
-      json = { "prettierd" },
-      -- json = { "jq" },
-
-      -- YAML
-      yaml = { "prettierd" },
-
-      -- TOML
-      toml = { "taplo" },
-
-      -- Make/CMake
-      make = { "cmake_format" },
-      cmake = { "cmake_format" },
-
-      -- SQL
-      sql = { "sql_formatter" },
-
       -- Injected
       ["*"] = { "injected" },
     },
