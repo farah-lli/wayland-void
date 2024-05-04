@@ -3,6 +3,7 @@
   "modules-left": [
     "custom/launcher",
     "river/tags",
+    "temperature",
     "custom/updates",
     "custom/wf-recorder",
     "river/mode"
@@ -62,7 +63,8 @@
   },
   // == Show System Tray ==//
   "tray": {
-    "spacing": 10
+    "spacing": 10,
+    "min-length": 8
   },
   // == Show Clock ==//
     "clock#1": {
@@ -135,6 +137,12 @@
     "on-click-middle": "pavucontrol"
   },
   // == Fuzzel Launcher Applications ==//
+  "temperature": {
+    "format": " {temperatureC}°C",
+    "tooltip": false,
+    "min-length": 8
+    },
+  // == Fuzzel Launcher Applications ==//
   "custom/launcher": {
     "format": " ",
     "on-click": "fuzzel",
@@ -157,10 +165,11 @@
     // == Show Update Package Manager ==//
   "custom/updates": {
       "format": "   {} ",
-      "interval": 7200,                     // every two hours
+      "interval": 3600,                     // every hour
       "exec": "xbps-install --memory-sync --dry-run --update | grep -Fe update -e install | wc -l",       // # of updates and tooltip details
       "exec-if": "exit 0",                
       "on-click": "foot doas xbps-install -SMu",
-      "signal": 8
+      "signal": 8,
+      "min-length": 8
   },
 }

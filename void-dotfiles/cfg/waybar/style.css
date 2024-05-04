@@ -26,6 +26,7 @@ window#waybar {
 #backlight,
 #battery,
 #tray,
+#temperature,
 #custom-wf-recorder,
 #custom-updates {
   background-color: #282828;
@@ -72,6 +73,7 @@ window#waybar {
 }
 #custom-symbol {
   color: #689d6a;
+  font-size: 15px;
 }
 #clock.1 {
   color: #d79921;
@@ -126,10 +128,19 @@ window#waybar {
   animation-iteration-count: infinite;
   animation-direction: alternate;
 }
+
+/* Stalone tray */
 #tray {
-  padding: 0 20px;
+  padding: 0 25px;
 }
 
+/* temperature  */
+#temperature {
+  color: rgb(244, 164, 96);
+}
+#temperature.critical {
+  color: rgb(139, 0, 0);
+}
 /*  My Custom Module */
 #custom-power,
 #custom-launcher {

@@ -7,7 +7,7 @@ return {
     "jvgrootveld/telescope-zoxide",
   },
   keys = {
-    { "<leader>fz", "<cmd>Telescope zoxide list<cr>", desc = "Recent Folders" },
+    { "<leader>cd", "<cmd>Telescope zoxide list<cr>", desc = "Recent Folders" },
   },
   opts = {
     pickers = {
