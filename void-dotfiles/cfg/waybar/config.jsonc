@@ -9,7 +9,9 @@
   ],
   "modules-center": [
         "clock#1",
+        "custom/symbol",
         "clock#2",
+        "custom/symbol",
         "clock#3",
   ],
   "modules-right": [
@@ -55,7 +57,8 @@
       "activated": " ",
       "deactivated": " "
     },
-    "start-activated": false,
+    "start-activated": true,
+    "min-length": 4
   },
   // == Show System Tray ==//
   "tray": {
@@ -74,12 +77,15 @@
         "format": "󱣺  {:%m-%d}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"	
     },
+    "custom/symbol": {
+    "format": "{}",
+    },
   // == Show Light ==//
     "backlight": {
         "device": "intel_backlight",
         "rotate": 0,
         "format": "{icon} {percent}%",
-        "format-icons": ["", " "],
+        "format-icons": [" ", " "],
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 8
@@ -105,12 +111,12 @@
   },
   // == Show Volume ==//
   "pulseaudio": {
-    "format": "{icon} {volume}% {format_source}",
-    "format-bluetooth": "{icon} {volume}% {format_source}",
+    "format": "{icon} {volume}% ",
+    "format-bluetooth": "{icon} {volume}% ", // Added {format_source} For MIC
     "format-bluetooth-muted": "  {volume}% {format_source}",
     "format-source": " ",
     "format-source-muted": " ",
-    "format-muted": "  {format_source}",
+    "format-muted": " -> {format_source}",
     "format-icons": {
       "headphone": " ",
       "hands-free": " ",

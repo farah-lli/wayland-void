@@ -64,12 +64,15 @@ window#waybar {
 }
 
 /*  Module Center */
-#clock {
+#clock,
+#custom-symbol {
   background: #1d2021;
   padding: 4px 10px;
   box-shadow: inset 0px 0px 1px 20px #282828;
 }
-
+#custom-symbol {
+  color: #689d6a;
+}
 #clock.1 {
   color: #d79921;
   border-top-left-radius: 20px;

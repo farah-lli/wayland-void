@@ -54,8 +54,6 @@ bind("n", "<Left>", "<Nop>", opts)
 bind("n", "<Right>", "<Nop>", opts)
 bind("n", "<Up>", "<Nop>", opts)
 bind("n", "<Down>", "<Nop>", opts)
-bind("n", "<space>", "/\\v", opts)
-bind("t", "<Esc>", "<C-\\><C-n>", opts)
 -- tab quick swich
 bind("n", "<leader>th", "<CMD>tabfirst<CR>", opts)
 bind("n", "<leader>tl", "<CMD>tablast<CR>", opts)

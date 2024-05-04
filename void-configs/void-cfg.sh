@@ -44,9 +44,9 @@ sudo rm /var/service/acpid 2> /dev/null
 sudo ln -s /etc/sv/elogind /var/service/
 sudo ln -s /etc/sv/dbus /var/service/
 sudo ln -s /etc/sv/NetworkManager /var/service/
+sudo ln -s /etc/sv/bluetoothd /var/service/
 # sudo ln -s /etc/sv/at /var/service/
 # sudo ln -s /etc/sv/cronie /var/service/
-# sudo ln -s /etc/sv/bluetoothd /var/service/
 # sudo ln -s /etc/sv/rsyslogd /var/service/
 # sudo ln -s /etc/sv/libvirtd /var/service/
 # sudo ln -s /etc/sv/virtlogd /var/service/
