@@ -4,10 +4,16 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = {
+    "nvim-telescope/telescope-file-browser.nvim",
     "jvgrootveld/telescope-zoxide",
   },
   keys = {
     { "<leader>cd", "<cmd>Telescope zoxide list<cr>", desc = "Recent Folders" },
+    {
+      "<leader>cs",
+      ":Telescope file_browser path=%:p:h=%:p:h<cr>",
+      desc = "Browse Files",
+    },
   },
   opts = {
     pickers = {
