@@ -6,6 +6,7 @@ return {
   { "folke/tokyonight.nvim", enabled = false },
   -- disable catppuccin (theme)
   { "catppuccin/nvim", enabled = false },
-  -- disable mini Auto-pairs
+  -- disable Some mini Plugs
   { "echasnovski/mini.pairs", enabled = false },
+  { "echasnovski/mini.indentscope", enabled = false },
 }

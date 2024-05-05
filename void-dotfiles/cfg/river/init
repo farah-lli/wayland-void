@@ -113,6 +113,7 @@ riverctl rule-add -app-id "virt-manager" tags 2147483664
 #==========================#
 riverctl rule-add -app-id "nemo" ssd
 riverctl rule-add -app-id "Firefox" ssd
+riverctl rule-add -app-id "*zathura" ssd
 
 #==========================#
 # Key Bindings:            #
@@ -243,3 +244,6 @@ riverctl map normal $mod+Control Up send-layout-cmd rivertile "main-location top
 riverctl map normal $mod+Control Right send-layout-cmd rivertile "main-location right"
 riverctl map normal $mod+Control Down send-layout-cmd rivertile "main-location bottom"
 riverctl map normal $mod+Control Left send-layout-cmd rivertile "main-location left"
+# Extra Binding:         #
+#==========================#
+riverctl map normal $mod4 W  spawn bookmarks

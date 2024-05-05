@@ -9,11 +9,11 @@
     "river/mode"
   ],
   "modules-center": [
-        "clock#1",
-        "custom/symbol",
-        "clock#2",
-        "custom/symbol",
-        "clock#3",
+    "clock#1",
+    "custom/symbol",
+    "clock#2",
+    "custom/symbol",
+    "clock#3",
   ],
   "modules-right": [
     "idle_inhibitor",
@@ -58,7 +58,7 @@
       "activated": " ",
       "deactivated": " "
     },
-    "start-activated": true,
+    "start-activated": false,
     "min-length": 4
   },
   // == Show System Tray ==//
