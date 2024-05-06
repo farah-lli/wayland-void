@@ -2,5 +2,8 @@
 -- Highlight COLORS
 -----------------------------------------------------------
 return {
-  "ap/vim-css-color",
+  "NvChad/nvim-colorizer.lua",
+  event = { "BufReadPre", "BufNewFile" },
+  enabled = true,
+  config = true,
 }

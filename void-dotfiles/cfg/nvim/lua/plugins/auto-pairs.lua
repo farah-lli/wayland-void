@@ -3,15 +3,40 @@
 -----------------------------------------------------------
 return {
   "windwp/nvim-autopairs",
+  event = { "BufReadPost", "BufNewFile" },
+  enabled = true,
   opts = {
     check_ts = true,
-    map_cr = true, --  map <CR> on insert mode
-    map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-    auto_select = true, -- auto select first item
+    disable_filetype = { "TelescopePrompt", "spectre_panel" },
+    disable_in_macro = false,
+    enable_afterquote = true,
+    enable_check_bracket_line = false,
+    enable_moveright = true,
+    ignore_next_char = string.gsub([[ [%w%%%'%[%"%.]'] ]], "%s+", ""),
+    map_bs = true,
+    map_c_w = false,
+
     map_char = {
-      -- modifies the function or method delimiter by filetypes
-      all = "(",
+      all = "()",
       tex = "{",
+    },
+
+    fast_wrap = {
+      map = "<M-e>",
+      chars = { "{", "[", "(", '"', "'" },
+      pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
+      offset = 0,
+      end_key = "$",
+      keys = "qwertyuiopzxcvbnmasdfghjkl",
+      check_comma = true,
+      highlight = "PmenuSel",
+      highlight_grey = "LineNr",
+    },
+
+    ts_config = {
+      lua = { "string", "source" },
+      javascript = { "string", "tempalte_string" },
+      java = false,
     },
   },
 }
