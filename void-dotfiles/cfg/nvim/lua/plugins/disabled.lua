@@ -8,5 +8,4 @@ return {
   { "catppuccin/nvim", enabled = false },
   -- disable Some mini Plugs
   { "echasnovski/mini.pairs", enabled = false },
-  { "echasnovski/mini.indentscope", enabled = false },
 }
