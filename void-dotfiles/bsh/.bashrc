@@ -158,7 +158,7 @@ export NNN_BMS="m:/run/media/$USER;M:/run/user/$UID/gvfs;w:$HOME/pix/wallpapers;
 ###-----Source fzf keybindingd----###
 #####################################
 eval "$(fzf --bash)"
-export FZF_DEFAULT_COMMAND='fd --type d'
+export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_DEFAULT_OPTS="--height=90% --border --multi --info inline-right --layout reverse --marker ▏ --pointer ▌ --prompt '▌ ' --highlight-line --color gutter:-1,selected-bg:238,selected-fg:146,current-fg:189"
 alias run_in_nvim="fzf --multi --bind 'enter:become(nvim {+})'"
 alias run_in_mpv="fd 'mp4' | fzf --multi --bind 'enter:become(mpv {+})'"
