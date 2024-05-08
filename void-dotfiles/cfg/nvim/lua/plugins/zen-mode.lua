@@ -6,13 +6,13 @@ return {
   enabled = true,
 
   keys = {
-    { "<leader>oz", [[<cmd>lua require("zen-mode").toggle()<cr>]], desc = "Zen mode" },
+    { "<leader>zo", [[<cmd>lua require("zen-mode").toggle()<cr>]], desc = "Zen mode" },
   },
 
   opts = {
     window = {
       width = 0.85,
-      height = 0.95,
+      height = 1,
       options = {
         colorcolumn = "",
         cursorcolumn = false,
