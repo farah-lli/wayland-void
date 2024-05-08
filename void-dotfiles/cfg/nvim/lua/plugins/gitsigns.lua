@@ -1,7 +1,7 @@
 -----------------------------------------------------------
 -- Gitsigns
 -----------------------------------------------------------
-local M = {
+return {
   "lewis6991/gitsigns.nvim",
   event = "VeryLazy",
   keys = {
@@ -14,10 +14,7 @@ local M = {
     { "<leader>gd", "<cmd>Gitsigns toggle_deleted<CR>", desc = "Toggle Gitsigns deleted" },
     { "<leader>gw", "<cmd>Gitsigns toggle_word_diff<CR>", desc = "Toggle Gitsigns worddiff" },
   },
-}
-
-function M.config()
-  require("gitsigns").setup({
+  opts = {
     signs = {
       add = {
         hl = "GitSignsAdd",
@@ -78,7 +75,5 @@ function M.config()
       col = 1,
     },
     yadm = { enable = false },
-  })
-end
-
-return M
+  },
+}
