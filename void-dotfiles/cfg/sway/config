@@ -26,6 +26,7 @@ set {
     $browser firefox
     $browser_VI qutebrowser
     $menu wmenu_run
+    $menuGui fuzzel
     $fileGui nemo
     $fileCli nnn -P z
 }
@@ -78,7 +79,7 @@ output eDP-1 {
     default_floating_border pixel 2
     # Gaps:                    #
     #==========================#
-    gaps inner  5
+    gaps inner  2
     gaps outer  0
     # Smart:                   #
     #==========================#
@@ -97,19 +98,24 @@ output eDP-1 {
 #==========================#
 # Define Variable colours: #
 #==========================#
-set $light      #ebdbb2
-set $dark       #1d2021
-set $focused    #689d6a
-set $inactive   #282828
-set $unfocused  #282828
-set $urgent     #9d0006
+set $bg       #282828
+set $fg       #d4be98
+set $red      #ea6962
+set $orange   #e78a4e
+set $green    #a9b665
+set $blue     #7daea3
+set $purple   #d3869b
+set $aqua     #89b482
+set $darkgray #282828
 # Set Variable colours:    #
 #==========================#
-# class                     border      bg      text    indicator   child_border
-client.focused          $focused    $focused    $dark   $focused    $focused
-client.focused_inactive $inactive   $inactive   $light   $inactive   $inactive
-client.unfocused        $unfocused  $unfocused  $light  $unfocused   $unfocused
-client.urgent           $urgent     $urgent     $light  $urgent      $urgent
+#       Gruvbox Theme   brdr        bg          text    indictr     chld_brdr
+client.focused          $aqua       $aqua       $bg     $aqua       $aqua
+client.focused_inactive $aqua       $aqua       $bg     $aqua       $bg
+client.unfocused        $bg         $bg         $fg     $bg         $bg
+client.urgent           $red        $red        $bg     $red        $red
+client.placeholder      $bg         $bg         $bg     $bg         $bg
+client.background       $bg
 
 #==========================#
 # Key Bindings:            #
@@ -122,6 +128,7 @@ bindsym {
     $mod+q                  exec $browser_VI
     $mod+w                  exec $browser
     $mod+p                  exec $menu
+    $mod+d                  exec $menuGui
     $mod+Shift+n            exec $fileGui
     $mod+n                  exec "$termbidi start --class fileCli $fileCli"
     $mod+Shift+Backslash    exec "$termbidi start --class wez_float"
@@ -291,16 +298,19 @@ bindsym {
 #==========================#
 bar {
     position top
-    font pango:JetBrains Mono Nerd Font 12
+    font pango:JetBrains Mono Nerd Font Bold 12
     status_command ~/.config/sway/scripts/statusbar.sh
     tray_output eDP-1
     colors {
-        statusline #ebdbb2
-        background #1d2021
-        focused_workspace #689d6a #689d6a #1d2021
-        active_workspace #689d6a #689d6a #1d2021
-        inactive_workspace #323232 #323232 #5c5c5c
-    }
+            background $bg
+            statusline $fg
+            #                    border     backgr.     text
+            focused_workspace    $aqua      $aqua       $bg
+            inactive_workspace   $bg        $green      $bg
+            active_workspace     $bg        $blue       $bg
+            urgent_workspace     $red       $red        $fg
+
+        }
 }
 #==========================#
 # RULES:                   #
