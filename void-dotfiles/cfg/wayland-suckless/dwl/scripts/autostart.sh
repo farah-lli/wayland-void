@@ -9,6 +9,5 @@ wbg ~/pix/wallpapers/WITCHER.png &
 fnott &
 udiskie &
 nm-applet &
-swayidle -w &
 pipewire &
 pipewire-pulse &
