@@ -298,7 +298,7 @@ bindsym {
 #==========================#
 bar {
     position top
-    font pango:JetBrains Mono Nerd Font Bold 12
+    font pango:JetBrains Mono Nerd Font Bold 11
     status_command ~/.config/sway/scripts/statusbar.sh
     tray_output eDP-1
     colors {
