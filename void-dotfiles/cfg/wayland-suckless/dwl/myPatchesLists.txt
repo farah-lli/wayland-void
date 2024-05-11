@@ -1,0 +1,13 @@
+1.alwayscenter.patch
+2.autostart.patch
+3.bar.patch
+4.barborder.patch
+5.cursortheme.patch
+6.customfloat.patch
+7.deck.patch
+8.fakefullscreenclient.patch
+9.gaps.patch
+10.movestack.patch
+11.simpleborders.patch
+12.swallow.patch
+13.unclutter.patch

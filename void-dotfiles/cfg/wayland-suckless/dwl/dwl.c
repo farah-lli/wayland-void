@@ -1493,7 +1493,8 @@ dirtomon(enum wlr_direction dir)
 void
 drawbar(Monitor *mon)
 {
-	int x, w, tw = 0;
+	int x, y = borderpx, w, tw = 0;
+	int mh, mw;
 	int sel;
 	int boxs = font->height / 9;
 	int boxw = font->height / 6 + 2;
@@ -1506,6 +1507,8 @@ drawbar(Monitor *mon)
 	if (!mon || !mon->showbar)
 		return;
 
+	mh = mon->b.height - borderpx * 2;
+	mw = mon->b.width - borderpx * 2;
 	stride = mon->b.width * 4;
 	size = stride * mon->b.height;
 
@@ -1516,12 +1519,14 @@ drawbar(Monitor *mon)
 	pix = pixman_image_create_bits(
 		PIXMAN_a8r8g8b8, mon->b.width, mon->b.height, buf->data, stride);
 
+	drwl_rect(pix, 0, 0, mon->b.width, mon->b.height, 1, &borderbar);
+
 	/* draw status first so it can be overdrawn by tags later */
 	if (mon == selmon) {
 		if (stext[0] == '\0')
 			strncpy(stext, "dwl-"VERSION, sizeof(stext));
 		tw = TEXTW(stext) - lrpad;
-		drwl_text(pix, font, mon->b.width - tw, 0, tw, mon->b.height, 0,
+		drwl_text(pix, font, borderpx + mw - tw, y, tw, mh, 0,
 			stext, &normbarfg, &normbarbg);
 	}
 
@@ -1533,37 +1538,37 @@ drawbar(Monitor *mon)
 			urg |= c->tags;
 	}
 	c = focustop(mon);
-	x = 0;
+	x = borderpx;
 	for (i = 0; i < LENGTH(tags); i++) {
 		w = TEXTW(tags[i]);
 		sel = mon->tagset[mon->seltags] & 1 << i;
 
-		drwl_text(pix, font, x, 0, w, mon->b.height, lrpad / 2, tags[i],
+		drwl_text(pix, font, x, y, w, mh, lrpad / 2, tags[i],
 			urg & 1 << i ? &selbarbg : (sel ? &selbarfg : &normbarfg),
 			urg & 1 << i ? &selbarfg : (sel ? &selbarbg : &normbarbg));
 
 		if (occ & 1 << i)
-			drwl_rect(pix, x + boxs, boxs, boxw, boxw, sel,
+			drwl_rect(pix, x + boxs, y + boxs, boxw, boxw, sel,
 				urg & 1 << i ? &selbarbg : (sel ? &selbarfg : &normbarfg));
 
 		x += w;
 	}
 
 	w = TEXTW(mon->ltsymbol);
-	x = drwl_text(pix, font, x, 0, w, mon->b.height, lrpad / 2,
+	x = drwl_text(pix, font, x, y, w, mh, lrpad / 2,
 			mon->ltsymbol, &normbarfg, &normbarbg);
 
-	if ((w = mon->b.width - tw - x) > mon->b.height) {
+	if ((w = mw - tw - x + borderpx) > mh) {
 		if (c != NULL) {
-			drwl_text(pix, font, x, 0, w, mon->b.height, lrpad / 2,
+			drwl_text(pix, font, x, y, w, mh, lrpad / 2,
 				c ? client_get_title(c) : NULL,
 				mon == selmon ? &selbarfg : &normbarfg,
 				(mon == selmon && c) ? &selbarbg : &normbarbg);
 			if (c && c->isfloating)
-				drwl_rect(pix, x + boxs, boxs, boxw, boxw, 0,
+				drwl_rect(pix, x + boxs, y + boxs, boxw, boxw, 0,
 					mon == selmon ? &selbarfg : &normbarfg);
 		} else {
-			drwl_rect(pix, x, 0, w, mon->b.height, 1, &normbarbg);
+			drwl_rect(pix, x, y, w, mh, 1, &normbarbg);
 		}
 	}
 
@@ -2983,7 +2988,7 @@ setup(void)
 		die("Could not load font");
 
 	lrpad = font->height;
-	bh = font->height + 2;
+	bh = font->height + 2 + borderpx * 2;
 
 	status_event_source = wl_event_loop_add_fd(wl_display_get_event_loop(dpy),
 		STDIN_FILENO, WL_EVENT_READABLE, status_in, NULL);

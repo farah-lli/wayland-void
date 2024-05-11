@@ -11,7 +11,7 @@ static const int bypass_surface_visibility   = 0;  /* 1 means idle inhibitors wi
 static const int smartgaps                   = 1;  /* 1 means no outer gap when there is only one window */
 static int gaps                              = 1;  /* 1 means gaps between windows are added */
 static const unsigned int gappx              = 2; /* gap pixel between windows */
-static const unsigned int borderpx           = 2;  /* border pixel of windows */
+static const unsigned int borderpx           = 1;  /* border pixel of windows & bar */
 static const float rootcolor[]               = COLOR(0x1d2021ff);
 static const float bordercolor[]             = COLOR(0x282828ff);
 static const float focuscolor[]              = COLOR(0x689d6aff);
@@ -27,6 +27,7 @@ static const int showbar                     = 1; /* 0 means no bar */
 static const int topbar                      = 1; /* 0 means bottom bar */
 static const char *fonts[]                   = {"JetBrainsMono Nerd Font:style=bold:size=12"};
 static const char *fontattrs                 = "dpi=96";
+static pixman_color_t borderbar              = { 0x3232, 0x3030, 0x2f2f, 0xffff };
 static pixman_color_t normbarfg              = { 0xebeb, 0xdbdb, 0xb2b2, 0xffff };
 static pixman_color_t normbarbg              = { 0x1d1d, 0x2020, 0x2121, 0xffff };
 static pixman_color_t selbarfg               = { 0x1d1d, 0x2020, 0x2121, 0xffff };
@@ -77,7 +78,7 @@ static const MonitorRule monrules[] = {
 	{ "eDP-1",    0.5f,  1,      2,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 	*/
 	/* defaults */
-	{ NULL,       0.55f, 1,      1,    &layouts[3], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
+	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   -1,  -1 },
 };
 
 /* keyboard */

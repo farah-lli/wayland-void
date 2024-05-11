@@ -2,7 +2,7 @@
 #==========================#
 # Background Daemon:       #
 #==========================#
-wbg ~/pix/wallpapers/WITCHER.png &
+wbg ~/pix/wallpapers/gnu.png &
 #==========================#
 #  App Daemon              #
 #==========================#
