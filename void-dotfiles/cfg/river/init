@@ -44,7 +44,7 @@ riverctl input $touchpad pointer-accel 0.5
 #==========================#
 # Misc configurations:     #
 #==========================#
-riverctl border-width 2
+riverctl border-width 1
 riverctl set-cursor-warp on-focus-change
 riverctl focus-follows-cursor always
 riverctl hide-cursor timeout 5000
@@ -247,3 +247,4 @@ riverctl map normal $mod+Control Left send-layout-cmd rivertile "main-location l
 # Extra Binding:         #
 #==========================#
 riverctl map normal $mod4 W  spawn bookmarks
+riverctl map normal $mod4 N  spawn "swaync-client -op"
