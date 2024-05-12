@@ -12,5 +12,4 @@ return {
   { "uga-rosa/cmp-dictionary", enabled = false }, -- Will use if really needed (Uncomment the cmp-dictionary file)
   { "folke/tokyonight.nvim", enabled = false }, -- disable tokyonight (theme)
   { "catppuccin/nvim", enabled = false }, -- disable catppuccin (theme)
-  { "folke/drop.nvim", enabled = false }, -- Nice Animaions Effects
 }

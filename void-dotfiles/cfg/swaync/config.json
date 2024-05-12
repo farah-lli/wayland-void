@@ -29,6 +29,7 @@
     "notifications",
     "mpris",
     "volume",
+    "backlight",
     "buttons-grid"
   ],
   "widget-config": {
@@ -49,8 +50,11 @@
       "image-radius": 7
     },
     "volume": {
-      "label": "󰕾",
-      "show-per-app": true
+      "label": "󰕾"
+    },
+    "backlight": {
+      "label": " ",
+      "device": "intel_backlight"
     },
     "buttons-grid": {
       "actions": [
@@ -84,7 +88,7 @@
         },
         {
           "label": "󰖩",
-          "command": "$HOME/.config/river/scripts/wifiMenu.py"
+          "command": "nm-connection-editor"
         },
         {
           "label": "󰂯",
