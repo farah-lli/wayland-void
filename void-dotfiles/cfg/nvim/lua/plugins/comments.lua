@@ -2,18 +2,37 @@
 --  Comments
 -----------------------------------------------------------
 return {
-  -- luacheck: ignore
-  -- Comment plugin (gcc for line comment, gb for block comment after selection)
-  {
-    "numToStr/Comment.nvim",
-    event = "VeryLazy",
-    opts = {
+  "numToStr/Comment.nvim",
+  event = { "BufReadPost", "BufNewFile" },
+  config = function()
+    local comment = require "Comment"
+
+    comment.setup {
+      pre_hook = function(ctx)
+        local U = require "Comment.utils"
+
+        -- Determine whether to use linewise or blockwise commentstring
+        local type = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
+
+        -- Determine the location where to calculate commentstring from
+        local location = nil
+        if ctx.ctype == U.ctype.blockwise then
+          location = require("ts_context_commentstring.utils").get_cursor_location()
+        elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+          location = require("ts_context_commentstring.utils").get_visual_start_location()
+        end
+
+        return require("ts_context_commentstring.internal").calculate_commentstring {
+          key = type,
+          location = location,
+        }
+      end,
       ---Add a space b/w comment and the line
       padding = true,
       ---Whether the cursor should stay at its position
       sticky = true,
       ---Lines to be ignored while (un)comment
-      ignore = nil,
+      ignore = "^$",
       ---LHS of toggle mappings in NORMAL mode
       toggler = {
         ---Line-comment toggle keymap
@@ -37,14 +56,15 @@ return {
         ---Add comment at the end of line
         eol = "gcA",
       },
-      ---Enable keybindings
-      ---NOTE: If given `false` then the plugin won't create any mappings
+      -- NOTE: If given `false` then the plugin won't create any mappings
       mappings = {
         ---Operator-pending mapping; `gcc` `gbc` `gc[count]{motion}` `gb[count]{motion}`
         basic = true,
         ---Extra mapping; `gco`, `gcO`, `gcA`
         extra = true,
+        ---Extended mapping; `g>` `g<` `g>[count]{motion}` `g<[count]{motion}`
+        extended = false,
       },
-    },
-  },
+    }
+  end,
 }
