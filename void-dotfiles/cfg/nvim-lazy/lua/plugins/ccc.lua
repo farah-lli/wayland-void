@@ -8,8 +8,8 @@ return {
     event = "VeryLazy",
     cmd = { "CccPick", "CccConvert" },
     keys = {
-      { "<leader>cp", "<cmd>CccPick<cr>", mode = "n", desc = "Color Picker" },
-      { "<leader>cc", "<cmd>CccConvert<cr>", mode = "n", desc = "Color Converter" },
+      { "<leader>zC", "<cmd>CccPick<cr>", mode = "n", desc = "Color Picker" },
+      { "<leader>zR", "<cmd>CccConvert<cr>", mode = "n", desc = "Color Converter" },
     },
     opts = {
       highlighter = {

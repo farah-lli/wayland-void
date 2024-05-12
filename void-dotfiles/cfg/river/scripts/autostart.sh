@@ -6,7 +6,7 @@ exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY 
 #==========================#
 # Background Daemon:       #
 #==========================#
-wbg ~/pix/wallpapers/gnu.png &
+wbg ~/pix/wallpapers/WITCHER.png &
 #==========================#
 #  App Daemon              #
 #==========================#
