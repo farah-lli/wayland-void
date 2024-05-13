@@ -50,7 +50,7 @@
       "image-radius": 7
     },
     "volume": {
-      "label": "󰕾"
+      "label": "󰕾 "
     },
     "backlight": {
       "label": " ",
@@ -80,11 +80,11 @@
         },
         {
           "label": "󰕾",
-          "command": "pamixer -t"
+          "command": "pavucontrol"
         },
         {
           "label": "󰍬",
-          "command": "swayosd-client --input-volume mute-toggle"
+          "command": "pavucontrol -t 4"
         },
         {
           "label": "󰖩",

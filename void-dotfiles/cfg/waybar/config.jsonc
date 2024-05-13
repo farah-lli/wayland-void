@@ -6,7 +6,7 @@
     "temperature",
     "custom/updates",
     "custom/wf-recorder",
-    "river/mode"
+    "river/mode",
   ],
   "modules-center": [
     "clock#1",
@@ -171,5 +171,26 @@
       "on-click": "foot doas xbps-install -SMu",
       "signal": 8,
       "min-length": 8
+  },
+    // == Show SwayNotifications Dashboard ==//
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   },
 }
