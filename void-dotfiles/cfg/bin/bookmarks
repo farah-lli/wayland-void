@@ -1,3 +1,10 @@
 #!/bin/bash
-notify-send -h int:value:100 "Getting List Of Available WEEBSITE ..."
-cat ~/.local/wayland-void/void-dotfiles/web/bookmarks/bookmarks.txt | wmenu -l 6 -if "JetBrainsMono Nerd Font 12" -p "LAUNCH WEEBSITE: " -N 1d2021 -n ebdbb2 -M 689d6a -m 1d2021 -S 689d6a -s 1d2021 | xargs firefox &
+
+# Get the search query from dmenu
+query=$(:|wmenu -il 0 -f "JetBrains Mono Nerd Font 12" -N 1d2021 -n ebdbb2 -M 689d6a -m 1d2021 -S 689d6a -s 1d2021 -p "SERACH: " )
+
+# Check if wmenu returned a query
+if [ -n "$query" ]; then
+    # Open the search results in the default web browser
+    firefox "https://www.google.com/search?q=$query"
+fi
