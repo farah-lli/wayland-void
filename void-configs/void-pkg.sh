@@ -24,7 +24,7 @@ sudo xbps-install -Sy \
     # COMMAND LINE TOOLS:
     xdg-user-dirs xdg-utils psmisc acl-progs bash-completion opendoas btop \
     nnn moc yt-dlp aria2 ffmpeg libsixel-util rsync eza bat glow wl-clipboard trash-cli man-db \
-    neovim lazygit cava fzf fd ripgrep zoxide pastel curl jq brightnessctl ImageMagick calcurse \
+    neovim lazygit cava fzf fd ripgrep zoxide pastel curl jq brightnessctl ImageMagick \
     # Graphical TOOLS:
     mpv vimiv imv zathura zathura-pdf-mupdf \
     qutebrowser firefox nemo mypaint gimp \

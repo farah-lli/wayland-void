@@ -233,7 +233,7 @@ riverctl map passthrough $mod F11 enter-mode normal
 #==========================#
 riverctl default-attach-mode top
 riverctl default-layout rivercarro
-rivercarro -inner-gaps 2 -outer-gaps 2 -per-tag &
+rivercarro -inner-gaps 1 -outer-gaps 1 -per-tag &
 # Layouts Binding:         #
 #==========================#
 # RiverCarro Layouts :     #
