@@ -4,7 +4,12 @@
 return {
   "kylechui/nvim-surround",
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    -- Configuration here, or leave empty to use defaults
+    -- keymaps = {
+    --   visual = "Q",
+    -- },
+  },
   -- 	    Old text                    Command         New text
   -- --------------------------------------------------------------------------------
   --     surr*ound_words             ysiw)           (surround_words)

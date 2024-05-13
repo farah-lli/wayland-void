@@ -3,7 +3,7 @@
 -----------------------------------------------------------
 return {
   "stevearc/conform.nvim",
-  opts = {
+    opts = {
     format = {
       timeout_ms = 3000,
       async = false, -- not recommended to change
