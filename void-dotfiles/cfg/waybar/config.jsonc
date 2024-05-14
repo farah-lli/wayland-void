@@ -72,7 +72,7 @@
         "tooltip": false
     },
     "clock#2": {
-        "format": "󱉊  {:%I:%M%p}",
+        "format": "󱦻  {:%I:%M%p}",
         "tooltip": false
     },
     "clock#3": {
@@ -80,7 +80,7 @@
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"	
     },
     "custom/symbol": {
-    "format": "{}",
+    "format": "󱋱{}",
     },
   // == Show Light ==//
     "backlight": {
