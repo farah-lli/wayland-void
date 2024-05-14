@@ -1,6 +1,0 @@
-https://www.youtube.com
-https://www.w3schools.com/
-https://validator.w3.org/
-https://codepen.io/pen
-https://caniuse.com/
-https://tympanus.net/codrops/css_reference/
