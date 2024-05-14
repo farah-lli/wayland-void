@@ -1,3 +1,6 @@
+@import url("extra/icon_only_tabs.css");
+@import url("extra/round_ui_items.css");
+@import url("extra/tab_loading_progress_bar.css");
 :root {
   --WindowDraggingFromNewtabButton: no-drag;
 } /*  For windows  */ /*
@@ -184,7 +187,7 @@
   background: #282828 !important;
 }
 
-/*  Cool animation on tab/bookmark icons  */
+/*  Cool animation on tab/bookmark icons  
 .tabbrowser-tab:not([pinned]):not([selected]) .tab-icon-image,
 .bookmark-item .toolbarbutton-icon {
   opacity: 0 !important;
@@ -204,7 +207,7 @@
 .bookmark-item:not([hover]) .toolbarbutton-icon {
   padding-left: 0 !important;
 }
-
+*/
 /*  Removes space after pinned tabs  */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
   > #tabbrowser-arrowscrollbox
